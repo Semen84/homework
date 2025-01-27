@@ -27,7 +27,8 @@
   word-spacing: 30px;
   color: rgb(6, 9, 48);
   text-shadow: 1px 1px rgb(172, 173, 191);
-  
+  text-decoration: overline;
+  text-decoration-style: wavy;
 }
 
 .jastify-2 {
