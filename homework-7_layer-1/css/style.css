@@ -52,7 +52,7 @@ body {
 
 /*===============================*/
 .main {
-  background: url("/img/hero-bg.jpg") 10% 50% / 100% no-repeat; /*Повторить материал*/
+  background: url("../img/hero-bg.jpg") 10% 50% / 100% no-repeat; /*Повторить материал*/
   background-repeat: no-repeat;
   align-items: center;
 }
