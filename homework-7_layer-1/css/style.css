@@ -1,0 +1,258 @@
+/*.body {
+    font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}*/
+body {
+  background: rgb(24, 30, 52);
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.headner {
+}
+
+.header_container {
+  max-width: 930px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 36px;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header_nav ul {
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+}
+.header_nav a:not(:last-child) {
+  margin-right: 30px;
+}
+
+.header_button {
+  margin-left: 34px;
+  border-radius: 100px;
+  background: #fff;
+  padding: 14px 30px;
+  color: rgb(39, 102, 174);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/*===============================*/
+.main {
+  background: url("/img/hero-bg.jpg") 10% 50% / 100% no-repeat; /*Повторить материал*/
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.hero {
+  max-width: 930px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 120px;
+}
+
+.hero-title {
+  font-weight: 600;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero_items-text {
+  max-width: 436px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.hero_items-text-1 {
+  margin-bottom: 15px;
+}
+
+.hero_items-text span {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgb(1, 162, 203);
+}
+
+.hero_items-buttons {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero_buttons-1,
+.hero_buttons-2 {
+  border-radius: 100px;
+  padding: 18px 30px;
+}
+.hero_buttons-1 {
+  background: linear-gradient(180deg, #00a4cc 0%, #2766ae 100%);
+  margin-bottom: 10px;
+}
+
+.hero_buttons-2 {
+  background: linear-gradient(129deg, #00a4cc 0%, #2766ae 100%);
+}
+
+/*===============================*/
+
+.hero-2 {
+  max-width: 930px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 120px;
+}
+
+.hero-2_title {
+  font-weight: 600;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.hero-2_text {
+  margin: 0 25% 0 25%;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 513px;
+  line-height: 150%;
+}
+
+.hero-2_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.hero-2_card {
+  border: 2px solid #176bae;
+  border-radius: 16px;
+  box-shadow: 4px 4px 13px 0 rgba(5, 13, 41, 0.76);
+  background: #197cb8;
+  padding: 28px;
+  width: 204px;
+  height: 141px;
+  margin-bottom: 30px;
+}
+
+.hero-2_button {
+  background: linear-gradient(180deg, #00a4cc 0%, #2766ae 100%);
+  border-radius: 100px;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 436px;
+  height: 56px;
+}
+
+.hero-2_cards h3 {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.hero-2_cards p {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  line-height: 150%;
+}
+
+/*========================*/
+
+.footer {
+  max-width: 930px;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 60px;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_desk .logo-header {
+  margin-bottom: 15px;
+}
+
+.footer_text {
+  max-width: 267px;
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 150%;
+}
+
+.footer_nav-1 p {
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.footer_nav-2 p {
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .footer_nav-1 li {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .footer_nav-1 li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .footer_nav-2 li {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .footer_nav-2 li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .footer_nav-2 {
+    margin-right: 90px;
+  }
+
+  .footer_desk {
+    margin-right: 80px;
+  }
