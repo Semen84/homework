@@ -1,0 +1,36 @@
+body {
+    background: #262628;
+}
+
+.wrapper {
+    
+    height: 200vh;
+}
+
+.text {
+    font-size: 250%;
+    color:#fff;
+    background: black;
+    height: 50%;
+}
+
+.rectangle {
+height: 100px;
+width: 718px;
+border-radius: 10px;
+background: #fff;
+position: fixed;
+left: 50%;
+bottom: 100px;
+right: 50px;
+}
+
+.circle {
+height: 100px;
+width: 100px;
+border-radius: 50px;
+background: #870505;
+position: absolute;
+left: 100px;
+bottom: 50px;
+}
