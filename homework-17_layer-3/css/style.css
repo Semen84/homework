@@ -1,0 +1,380 @@
+:root {
+  --general-text: #312c27;
+  --general-bg: #fff9f4;
+  --accent-bg: #ffe0cb;
+  --accent-text: #1f1711;
+  --accent-color: #ffa55c;
+}
+
+.body {
+  font-family: "Montserrat", "Arial", sans-serif;
+  line-height: 1.5;
+  color: var(--general-text);
+  background: var(--general-bg);
+}
+
+.body--opened-menu {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%; /*Оболочка наследует высоту страницы браузера, и позволяет применить flex-grow: 1 для main*/
+  width: 100%; /*Оболочка наследует ширину страницы браузера, не позволяя контенту выйти за оболочку*/
+  overflow: hidden; /*Не позволяет контенту выйти за оболочку, обрезая лишнее*/
+  display: flex;
+  flex-direction: column; /*выстраиваем в колонку header mainи footer*/
+}
+
+.main {
+  flex-grow: 1; /*Теперь main прижимаемает header и footer к верх и низ соответственно (но обязательно при заданном в wrapper: min-height 100%)*/
+}
+
+.container {
+  max-width: 1310px; /*После замера ширины контента в макете задаем его с учетом отступов*/
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  background: var(--accent-color);
+  border-radius: 60px;
+  padding: 3px 15px;
+  height: 62px;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background: rgb(255, 145, 56);
+  /*animation: gentleShake 0.5s ease;
+  transform: scale(1.05);*/
+}
+
+/*@keyframes gentleShake {
+  0% { transform: translateX(0) scale(1.05); }
+  25% { transform: translateX(2px) rotate(2deg) scale(1.05); }
+  50% { transform: translateX(-2px) rotate(-2deg) scale(1.05); }
+  75% { transform: translateX(1px) rotate(1deg) scale(1.05); }
+  100% { transform: translateX(0) scale(1.05); }
+}*/
+
+/*=====================================*/
+
+.header {
+  background: url("../img/decor/bg-header.png") 50% 100% / cover no-repeat; /*Центрируем по горизонтали (50%) и  100% (низ элемента) → фон "приклеен" к низу.. Масштабируем изображение так, чтобы оно полностью покрывало элемент (cover).  
+  Запрещаем повторение изображения (no-repeat).*/
+}
+
+.header__top {
+  padding-top: 19px;
+}
+
+.header__top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header__logo {
+  max-width: 174px;
+  z-index: 12;
+}
+
+.header__logo img {
+  width: 100%;
+}
+
+.nav {
+}
+
+.nav__list {
+  display: flex;
+  gap: 4vh 40px; /*Свойство gap не не задаёт отступ последнему элементу, оно обеспечивает равномерное распределение отступов между дочерними элементами контейнера Flex*. 4vh для адаптивности при разной высоте экрана пользователя*/
+}
+
+.nav__item {
+}
+
+.nav__link {
+  display: block;
+  padding: 5px 0px; /*Задали эти значения чтобы немного увеличить область нажатия на ссылку*/
+  position: relative;
+  z-index: 1;
+}
+
+.nav__link::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -13px;
+  width: 34px;
+  height: 34px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.nav__link:hover::before {
+  opacity: 1;
+}
+/*========================================================*/
+.burger-icon {
+  display: none;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center; /*Для расположения span по центру*/
+  z-index: 12;
+}
+
+.burger-icon span,
+.burger-icon span::before,
+.burger-icon span::after {
+  display: block;
+  width: 30px;
+  height: 3px;
+  border-radius: 100px;
+  background: var(--general-text);
+  transition: all 0.4s;
+}
+
+.burger-icon span {
+  position: relative;
+}
+
+.burger-icon span::before,
+.burger-icon span::after {
+  content: "";
+  position: absolute;
+}
+
+.burger-icon span::before {
+  top: -8px;
+}
+
+.burger-icon span::after {
+  bottom: -8px;
+}
+
+.body--opened-menu .burger-icon span {
+  background: transparent; /*Используется для задания прозрачного фона элемента. Это означает, что фон элемента будет невидимым, и через него будет видно содержимое или фон родительского элемента.*/
+}
+
+.body--opened-menu .burger-icon span::before {
+  top: 0px;
+  transform: rotate(45deg);
+}
+
+.body--opened-menu .burger-icon span::after {
+  bottom: 0px;
+  transform: rotate(-45deg);
+}
+
+/*===================================================*/
+
+.hero {
+  padding: 50px 0 140px;
+}
+
+.hero__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px; /*Чтобы при адаптиве не склеивался контент*/
+}
+
+.hero__content {
+  max-width: 519px;
+}
+
+.hero__info {
+  color: rgb(177, 151, 179);
+  line-height: 160%;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero__info span {
+  display: flex;
+  align-items: center;
+}
+
+.hero__info span::after {
+  content: "";
+  background: rgb(177, 151, 179);
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  display: block;
+  margin: 0 10px;
+}
+
+.hero__info span:last-child::after {
+  content: none;
+}
+
+.hero__title {
+  font-family: "Gabriola";
+  font-size: 74px;
+  line-height: 0.82;
+  margin-bottom: 30px;
+}
+
+.hero__text {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 358px;
+}
+
+.hero__button {
+  max-width: 358px;
+  width: 100%;
+}
+
+.hero__img {
+  position: relative;
+  margin-right: 247px;
+}
+
+.hero__img>img{
+  width: 100%;
+}
+
+.hero__img-control {
+  position: absolute;
+  bottom: 53px;
+  left: calc(100% - 39px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 200px;
+  text-align: left;
+}
+
+.hero__img-control--mobile {
+  display: none;
+}
+
+.hero__img-button {
+  box-shadow: 0px 4px 20px 0px rgba(184, 148, 126, 0.3);
+  background: rgb(255, 224, 203);
+  border-radius: 50%;
+  height: 78px;
+  width: 78px;
+  flex-shrink: 0; /*По умолчанию у flex-элементов flex-shrink: 1 (могут сжиматься, если не хватает места)
+0 означает: "Не сжимайся, даже если контейнер переполнен"*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero__img-button img {
+  padding-left: 8.8%;
+}
+
+.hero__img-button::before {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  inset: 5px; /*Это означает, что элемент будет сдвинут на 5 пикселей со всех сторон (внутрь, если используется с position: absolute или fixed).*/
+  box-shadow: 0px 4px 20px 0px rgba(184, 148, 126, 0.3);
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.hero__img-button:hover::before {
+  opacity: 1;
+}
+
+/*============Адаптив хэдера==================*/
+
+@media (max-width: 1200px) {
+  .hero__img {
+    margin: 0;
+    max-width: 377px;
+  }
+  
+  .hero__img-control {
+    position: static;
+    max-width: none;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: var(--general-bg);
+    padding: 24vh 15px 30px;
+    font-size: 24px;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .body--opened-menu .nav {
+    /*Этот класс будет появлятся и выводить навигацию*/
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .burger-icon {
+    display: flex; /*Для расположения span по центру*/
+  }
+}
+
+@media (max-width: 800px) {
+  .hero__img {
+    display: none;
+  }
+
+.hero__content {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+  .hero__img-control--mobile {
+    display: flex;
+    margin: 0 0 30px;
+  }
+  
+
+}
+
+@media (max-width: 600px) {
+.hero {
+  padding-bottom: 80px;
+}
+
+.hero__title {
+  font-size: 12vw;
+}
+}
