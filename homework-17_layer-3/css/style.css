@@ -4,6 +4,7 @@
   --accent-bg: #ffe0cb;
   --accent-text: #1f1711;
   --accent-color: #ffa55c;
+  --transition: all 0.4s;
 }
 
 .body {
@@ -22,7 +23,7 @@
   width: 100%; /*Оболочка наследует ширину страницы браузера, не позволяя контенту выйти за оболочку*/
   overflow: hidden; /*Не позволяет контенту выйти за оболочку, обрезая лишнее*/
   display: flex;
-  flex-direction: column; /*выстраиваем в колонку header mainи footer*/
+  flex-direction: column; /*выстраиваем в колонку header main и footer*/
 }
 
 .main {
@@ -47,7 +48,7 @@
   border-radius: 60px;
   padding: 3px 15px;
   height: 62px;
-  transition: all 0.4s;
+  transition: var(--transition);
 }
 
 .button:hover {
@@ -119,7 +120,7 @@
   border-radius: 50%;
   z-index: -1;
   opacity: 0;
-  transition: all 0.4s;
+  transition: var(--transition);
 }
 
 .nav__link:hover::before {
@@ -143,7 +144,7 @@
   height: 3px;
   border-radius: 100px;
   background: var(--general-text);
-  transition: all 0.4s;
+  transition: var(--transition);
 }
 
 .burger-icon span {
@@ -249,7 +250,7 @@
   margin-right: 247px;
 }
 
-.hero__img>img{
+.hero__img > img {
   width: 100%;
 }
 
@@ -294,13 +295,146 @@
   inset: 5px; /*Это означает, что элемент будет сдвинут на 5 пикселей со всех сторон (внутрь, если используется с position: absolute или fixed).*/
   box-shadow: 0px 4px 20px 0px rgba(184, 148, 126, 0.3);
   opacity: 0;
-  transition: all 0.4s;
+  transition: var(--transition);
 }
 
 .hero__img-button:hover::before {
   opacity: 1;
 }
 
+/*===================FOOTER==========================*/
+
+.footer {
+  color: var(--general-bg);
+  background: #ab8261;
+  padding: 60px 0 66px;
+}
+
+.footer__inner {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 0.9fr 0.9fr 1.1fr auto;
+}
+
+.footer__col:first-child {
+  margin-top: -28px;
+}
+
+.footer__col:last-child {
+  justify-items: end;
+}
+
+
+.footer__logo {
+  display: block;
+  max-width: 241px;
+}
+.footer__logo img {
+  width: 100%;
+}
+
+.footer__logo-text {
+  margin-bottom: 20px;
+}
+
+.footer__col-list {
+  margin-top: -5px;
+}
+
+.footer__col-item {
+  margin-bottom: 15px;
+}
+.footer__col-item:last-child {
+  margin-bottom: 0px;
+}
+
+.footer__col-link {
+  display: block;
+  padding: 5px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__col-link::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -13px;
+  width: 34px;
+  height: 34px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+
+
+.footer__col-link:hover::before {
+  opacity: 1;
+}
+.footer__contact-list {
+}
+
+.footer__contact-item {
+  margin-bottom: 15px;
+}
+
+.footer__contact-item:last-child {
+  margin-bottom: 0px;
+}
+
+.footer__contact-link {
+}
+
+.footer__col-tel {
+  padding-bottom: 47px;
+}
+
+.footer__col-number {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+.footer__col-number:hover {
+  color: var(--accent-color);
+}
+
+.footer__col-copy {
+  color: rgb(222, 197, 177);
+}
+
+.socials {
+  line-height: 0;
+}
+
+.socials__list {
+  display: flex;
+  gap: 15px;
+}
+
+.socials__item {
+}
+
+.socials__link {
+  display: block;;
+}
+
+.socials__link path {
+  transition: var(--transition);
+}
+.socials__link :hover path {
+  /*Элементы SVG (включая <path>) по умолчанию не наследуют стили от родительских HTML-элементов (например, от <a>). Чтобы изменить их свойства при наведении, нужно явно указать цель. <path> — это элемент SVG, который определяет форму иконки.
+  Свойство fill управляет цветом заливки этого пути.
+    Без явного указания path стиль применится только к родительскому контейнеру (ссылке), но не к самой иконке.*/
+  fill: var(--accent-color);
+}
+
+/*============Адаптив хэдера==================*/
+/*============Адаптив хэдера==================*/
 /*============Адаптив хэдера==================*/
 
 @media (max-width: 1200px) {
@@ -308,7 +442,7 @@
     margin: 0;
     max-width: 377px;
   }
-  
+
   .hero__img-control {
     position: static;
     max-width: none;
@@ -327,7 +461,7 @@
     transform: translateY(-50%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s;
+    transition: var(--transition);
   }
 
   .nav__list {
@@ -352,29 +486,155 @@
     display: none;
   }
 
-.hero__content {
-  max-width: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
+  .hero__content {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
 
   .hero__img-control--mobile {
     display: flex;
     margin: 0 0 30px;
   }
-  
-
 }
 
 @media (max-width: 600px) {
-.hero {
-  padding-bottom: 80px;
+  .hero {
+    padding-bottom: 80px;
+  }
+
+  .hero__title {
+    font-size: 12vw;
+  }
 }
 
-.hero__title {
-  font-size: 12vw;
+
+
+
+
+
+/*==========================================*/
+
+@media (max-width: 800px) {
+  .footer {
+    padding: 40px 0;
+  }
+
+  .footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: center; /* Центрируем текст во всех колонках */
+  }
+
+.footer__logo  {
+  margin: 0 auto;
+}
+
+  
+  .footer__col:first-child {
+    margin-top: 0;
+    grid-column: 1 / -1; /* Растягиваем первую колонку на всю ширину */
+    text-align: center; /* Центрируем содержимое первой колонки */
+  }
+
+  .footer__col:last-child {
+    grid-column: 1 / -1; /* Растягиваем последнюю колонку на всю ширину */
+    text-align: center; /* Центрируем содержимое последней колонки */
+    justify-items: center; /* Центрируем элементы внутри колонки */
+  }
+
+  .socials__list {
+    justify-content: center; /* Центрируем иконки соцсетей */
+  }
+
+  .footer__col-tel {
+    padding-bottom: 30px;
+  }
+
+  .footer__col-link::before {
+    content:none;
+    }
+
+
+@media (max-width: 480px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer__col {
+    text-align: center !important;
+  }
+  
+  .footer__col-list,
+  .footer__contact-list {
+    margin-top: 0;
+  }
+  
+  .footer__col-item {
+    margin-bottom: 10px;
+  }
+  
+  .footer__col-number {
+    font-size: 20px;
+  }
+  
+  .socials__list {
+    justify-content: center;
+  }
+  
+  .footer__contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .footer__col-tel {
+    padding-bottom: 20px;
+  }
+  
+  .footer__col-copy {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .footer__logo {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  
+  .footer__logo-text {
+    margin-bottom: 15px;
+  }
+  
+  .socials__list {
+    gap: 10px;
+  }
+  
+  .socials__link svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .footer__col-number {
+    font-size: 18px;
+  }
+}
+
+
+.footer__contact-item img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.footer__col-link {
+  font-size: clamp(14px, 2vw, 16px);
 }
 }
