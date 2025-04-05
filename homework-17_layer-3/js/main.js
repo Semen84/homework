@@ -18,35 +18,6 @@
   }
 })();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //                   Модальное окно
 const modal = document.querySelector(".modal");
 const openModalButton = document.querySelector(".about__img-button");
@@ -104,12 +75,14 @@ function toggleTab(e) {
 
   if (tabControl.classList.contains("tab__controls-link--active")) return;
 
-
-  
   // Удаляем активные классы
-  document.querySelector(".tab__controls-link--active")?.classList.remove("tab__controls-link--active");
-  document.querySelector(".tab-content--show")?.classList.remove("tab-content--show");
-  
+  document
+    .querySelector(".tab__controls-link--active")
+    ?.classList.remove("tab__controls-link--active");
+  document
+    .querySelector(".tab-content--show")
+    ?.classList.remove("tab-content--show");
+
   // Добавляем активные классы
   const tabContentID = tabControl.getAttribute("href");
   tabControl.classList.add("tab__controls-link--active");
@@ -135,7 +108,6 @@ if(accordionItem.classList.contains('accordion-list__item--opened')) {
   }
 */
 
-
 /*
 const accordionItems = document.querySelectorAll('.accordion-list__item');
 
@@ -154,34 +126,66 @@ accordionItems.forEach(item => {
   });
 });*/
 
-const accordionItems = document.querySelectorAll('.accordion-list__item');
+const accordionItems = document.querySelectorAll(".accordion-list__item");
 
-accordionItems.forEach(item => {
-  const control = item.querySelector('.accordion-list__control');
-  const content = item.querySelector('.accordion-list__content');
-  
+accordionItems.forEach((item) => {
+  const control = item.querySelector(".accordion-list__control");
+  const content = item.querySelector(".accordion-list__content");
+
   // Инициализация первого открытого элемента
-  if(item.classList.contains('accordion-list__item--opened')) {
-    content.style.maxHeight = content.scrollHeight + 'px';
+  if (item.classList.contains("accordion-list__item--opened")) {
+    content.style.maxHeight = content.scrollHeight + "px";
   }
 
-  control.addEventListener('click', () => {
+  control.addEventListener("click", () => {
     // Закрываем все аккордеоны
-    accordionItems.forEach(otherItem => {
-      if(otherItem !== item) {
-        otherItem.classList.remove('accordion-list__item--opened');
-        const otherContent = otherItem.querySelector('.accordion-list__content');
+    accordionItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("accordion-list__item--opened");
+        const otherContent = otherItem.querySelector(
+          ".accordion-list__content"
+        );
         otherContent.style.maxHeight = null;
       }
     });
 
     // Переключаем текущий аккордеон
-    const isOpened = item.classList.toggle('accordion-list__item--opened');
-    
+    const isOpened = item.classList.toggle("accordion-list__item--opened");
+
     if (isOpened) {
-      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.maxHeight = content.scrollHeight + "px";
     } else {
       content.style.maxHeight = null;
     }
   });
+});
+
+//                  Слайдер-Галерея
+
+const swiper = new Swiper(".gallery__slider", {
+  spaceBetween: 15,
+  slidesPerView: 1.5,
+
+  pagination: {
+    el: ".gallery__paginations",
+    type: "fraction",
+  },
+
+  navigation: {
+    nextEl: ".gallery__next",
+    prevEl: ".gallery__prev",
+  },
+
+  breakpoints: {
+    601: {
+      spaceBetween: 32,
+      slidesPerView: 3,
+    },
+    801: {
+      spaceBetween: 32,
+    },
+    1101: {
+      slidesPerView: 4,
+    },
+  },
 });
