@@ -189,3 +189,32 @@ const swiper = new Swiper(".gallery__slider", {
     },
   },
 });
+
+//                  Слайдер-Отзывы
+
+const swiper2 = new Swiper(".testimonials__slider", {
+  
+  spaceBetween: 0,/*Расстояние между слайдами*/
+  slidesPerView: 1,/*Количество слайдов на экране*/
+  centeredSlides: true,/*Центрирует активный слайд*/
+
+  navigation: {
+    nextEl: ".testimonials__next",
+    prevEl: ".testimonials__prev",
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    draggable: true,
+  },
+
+  breakpoints: {
+        901: {
+      slidesPerView: 1.5,
+    },
+        1201: {
+      slidesPerView: 2.1,
+    },
+  },
+
+});
