@@ -679,18 +679,16 @@
   opacity: 0.5;
 }
 
-
 .testimonials__slide.swiper-slide {
   transform: scale(0.9);
   padding: 25px 25px 60px 25px;
   gap: 27px;
 }
 
-
 .swiper-slide-active.testimonials__slide {
   transform: scale(1);
   opacity: 1;
-  /*min-height: 330px;*//**/
+  /*min-height: 330px;*/ /**/
 }
 
 .testimonials__student {
@@ -745,7 +743,6 @@
   border-radius: 2px !important;
 }
 
-
 /*==================АДАПТИВ==========================*/
 @media (max-width: 900px) {
   .testimonials__scrollbar.swiper-scrollbar {
@@ -756,8 +753,8 @@
 
 @media (max-width: 800px) {
   .testimonials__inner {
-  align-items: stretch;
-  flex-direction: column;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .testimonials__nav {
@@ -780,11 +777,194 @@
   .testimonials__inner {
     margin-bottom: 20px;
   }
-
 }
 
 @media (max-width: 450px) {
-.testimonials__slide.swiper-slide {
-  padding: 30px 10px 30px;
+  .testimonials__slide.swiper-slide {
+    padding: 30px 10px 30px;
+  }
 }
+
+/*================КОНТАКТЫ======================*/
+
+.contact {
+  padding: 140px 0;
+  background: url("../img/decor/bg-contact.png") 50% 0 / cover no-repeat;
 }
+
+.contact__inner {
+  display: flex;
+  align-items: end;
+  gap: 84px;
+  position: relative;
+}
+
+/*.contact__img {
+  position: relative;
+}*/
+
+.contact__inner::before {
+  content: url("../img/decor/berries.png");
+  position: absolute;
+  top: -4%;
+  left: 0%;
+}
+.contact__inner::after {
+  content: url("../img/decor/berries-2.png");
+  position: absolute;
+  top: 7%;
+  right: 0%;
+}
+
+.contact__img img {
+  width: 100%;
+  filter: drop-shadow(
+    0px 4px 30px 0px rgba(198, 176, 161, 0.3)
+  ); /*Тень ложиться только на непрозрачные элементы в данном случае торт. А box shadow на все элементы.*/
+}
+
+.contact__body {
+  max-width: 420px;
+}
+
+.contact__title {
+  margin-bottom: 20px;
+}
+
+.contact__text {
+  margin-bottom: 40px;
+}
+
+.contact__form {
+}
+
+.contact__label {
+  margin-bottom: 10px;
+}
+
+.contact__input {
+  border: 1px solid rgb(172, 144, 122);
+  border-radius: 100px;
+  padding: 19px 41px 19px 28px;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #00000000;
+  font-size: 16px;
+  transition: var(--transition);
+  margin-bottom: 20px;
+}
+
+.contact__input:hover {
+  border-color: var(--accent-color);
+}
+
+.contact__input::placeholder {
+  color: rgb(172, 144, 122);
+  transition: var(--transition);
+}
+.contact__input:hover::placeholder {
+  color: var(--accent-color);
+}
+
+.contact__check-label {
+  display: flex;
+  align-items: start;
+  gap: 5px;
+  font-size: 13px;
+  max-width: 288px;
+  margin-bottom: 20px;
+}
+.contact__check-label a {
+  text-decoration: underline;
+  transition: var(--transition);
+}
+.contact__check-label a:hover {
+  color: var(--accent-color);
+}
+
+.contact__checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.7px solid rgb(172, 144, 122);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.contact__checkbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/icons/check.svg") 50% 50% no-repeat;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.contact__checkbox:hover {
+  border: 1.7px solid rgb(255, 165, 92);
+}
+.contact__checkbox:checked {
+  background: rgb(255, 165, 92);
+  border: 1.7px solid rgb(255, 165, 92);
+}
+.contact__checkbox:checked::before {
+  opacity: 1;
+}
+
+/*=================Адаптив КОНТАКТЫ=====================*/
+
+@media (max-width: 1200px) {
+  .contact__inner::after {
+    top: -15%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .contact__inner {
+    gap: 30px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact__img {
+    display: none;
+  }
+
+  .contact__inner {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact__inner::before {
+    display: none;
+  }
+
+  .contact__inner::after {
+    right: 43%;
+    top: -20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact__title,
+  .contact__text {
+    text-align: center;
+  }
+
+  .contact {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact__inner::after {
+    right: auto;
+    
+  }
+};

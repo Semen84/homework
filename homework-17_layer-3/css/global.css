@@ -4,8 +4,10 @@
     --accent-bg: #ffe0cb;
     --accent-text: #1f1711;
     --accent-color: #ffa55c;
+    --input-color: #AC907A;
     --transition: all 0.4s;
     --border-radius: 20px;
+
   }
   
   .body {
