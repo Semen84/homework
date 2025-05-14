@@ -30,106 +30,79 @@ document.addEventListener("DOMContentLoaded", function () {
 /*==============Swiper=============*/
 
 const initSliders = () => {
-  const thumbsSlider = new Swiper(".thumbs-slider", {
-    direction: 'horizontal',
-    spaceBetween: 0,
-    slidesPerView: 5,
-    freeMode: {
-      enabled: true,
-      sticky: true,
-      momentumBounce: false
-    },
-    watchSlidesProgress: true,
-    slideToClickedSlide: true,
-    centeredSlides: false,
-    /*breakpoints: {
-      320: {
-        slidesPerView: 3,
-        spaceBetween: 10
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 15
-      },
-      1200: {
-        slidesPerView: 5,
-        spaceBetween: 20
+  document.querySelectorAll('.hall-slider').forEach(sliderEl => {
+    const hallId = sliderEl.dataset.hall;
+    
+    const thumbs = new Swiper(sliderEl.querySelector('.thumbs-slider'), {
+      slidesPerView: 5,
+      freeMode: true,
+      watchSlidesProgress: true,
+      observer: true,
+      observeParents: true,
+      breakpoints: {
+        320: { slidesPerView: 3 },
+        1300: { slidesPerView: 4 },
+        1500: { slidesPerView: 5 }
       }
-    }*/
-  });
+    });
 
-  const mainSlider = new Swiper(".main-slider", {
-    loop: false,
-    spaceBetween: 0,
-    observer: true,
-    observeParents: true,
-    navigation: {
-      nextEl: ".slider-next",
-      prevEl: ".slider-prev",
-    },
-    thumbs: {
-      swiper: thumbsSlider,
-    },
-    on: {
-      init: function() {
-        document.querySelector(".total-slides").textContent = this.slides.length;
-        thumbsSlider.update();
+    sliders[hallId] = new Swiper(sliderEl.querySelector('.main-slider'), {
+      navigation: {
+        nextEl: ".slider-next",
+        prevEl: ".slider-prev",
       },
-      slideChange: function() {
-        document.querySelector(".current-slide").textContent = this.realIndex + 1;
-        
-        // Автоматическая прокрутка миниатюр
-        if(thumbsSlider && !thumbsSlider.destroyed) {
-          const activeIndex = this.realIndex;
-          const numThumbs = thumbsSlider.params.slidesPerView;
-          const centerOffset = Math.floor(numThumbs/2);
-          
-          thumbsSlider.slideTo(
-            Math.max(0, activeIndex - centerOffset),
-            500
-          );
+      thumbs: { swiper: thumbs },
+      observer: true,
+      observeParents: true,
+      on: {
+        init: function() {
+          document.querySelector(".total-slides").textContent = this.slides.length;
+        },
+        slideChange: function() {
+          document.querySelector(".current-slide").textContent = this.realIndex + 1;
         }
       }
-    }
-  });
-
-
-  
-  // Включение drag-прокрутки для миниатюр
-  let isDragging = false;
-  thumbsSlider.el.addEventListener('mousedown', () => isDragging = true);
-  thumbsSlider.el.addEventListener('mousemove', () => isDragging && thumbsSlider.update());
-  thumbsSlider.el.addEventListener('mouseup', () => isDragging = false);
-
-  // Адаптация при ресайзе
-  window.addEventListener('resize', () => {
-    thumbsSlider.update();
-    mainSlider.update();
-    mainSlider.slideTo(mainSlider.activeIndex);
+    });
   });
 };
-
+const sliders = {}; // Хранилище экземпляров Swiper
 document.addEventListener("DOMContentLoaded", initSliders);
 
 /*=============*/
 
-document.querySelectorAll(".hall-tab").forEach((tab) => {
-  tab.addEventListener("click", function () {
-    // Удаляем активный класс у всех вкладок
-    document
-      .querySelectorAll(".hall-tab")
-      .forEach((t) => t.classList.remove("active"));
+document.querySelectorAll(".hall-tab").forEach(tab => {
+  tab.addEventListener('click', function() {
+    // Удаляем активный класс у всех кнопок и добавляем текущей
+    document.querySelectorAll('.hall-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
 
-    // Добавляем активный класс текущей вкладке
-    this.classList.add("active");
-
-    // Здесь можно добавить логику загрузки данных для выбранного зала
-    const hallNumber = this.textContent.replace("Hall №", "");
-    loadHallData(hallNumber);
+    const hallId = this.dataset.hall;
+    
+    // Скрываем все слайдеры
+    document.querySelectorAll('.hall-slider').forEach(s => s.style.display = 'none');
+    
+    // Показываем выбранный слайдер
+    const activeSlider = document.querySelector(`.hall-slider[data-hall="${hallId}"]`);
+    activeSlider.style.display = 'block';
+    
+    // Обновляем информацию о зале
+    document.querySelector('.capacity-info_quantity span').textContent = `№ ${hallId}`;
+    document.querySelector('.capacity-info_quadrature span').innerHTML = 
+      `${this.dataset.square} м<sup>2</sup>`;
+    document.querySelector('.capacity-info_capacity span').textContent = 
+      `до ${this.dataset.capacity}-ти человек`;
+    
+    // Получаем экземпляр Swiper и обновляем его
+    const swiperInstance = sliders[hallId];
+    swiperInstance.update();
+    swiperInstance.slideTo(0); // Сбрасываем к первому слайду
+    
+    // Обновляем пагинацию
+    document.querySelector(".total-slides").textContent = swiperInstance.slides.length;
+    document.querySelector(".current-slide").textContent = swiperInstance.realIndex + 1;
+    
+    // Обновляем навигацию
+    swiperInstance.navigation.update();
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  console.log('DOM loaded. Main slider exists:', !!document.querySelector('.main-slider'));
-  initSliders();
-});
