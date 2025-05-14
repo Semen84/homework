@@ -240,10 +240,42 @@
 
             <!-- Переключатели залов -->
             <div class="hall-tabs">
-              <button class="hall-tab active">Hall №1</button>
-              <button class="hall-tab">Hall №2</button>
-              <button class="hall-tab">Hall №3</button>
-              <button class="hall-tab">Hall №5</button>
+              <button
+                class="hall-tab active"
+                data-hall="1"
+                data-square="40"
+                data-capacity="20"
+                data-number="1"
+              >
+                Hall №1
+              </button>
+              <button
+                class="hall-tab"
+                data-hall="2"
+                data-square="35"
+                data-capacity="15"
+                data-number="2"
+              >
+                Hall №2
+              </button>
+              <button
+                class="hall-tab"
+                data-hall="3"
+                data-square="50"
+                data-capacity="25"
+                data-number="3"
+              >
+                Hall №3
+              </button>
+              <button
+                class="hall-tab"
+                data-hall="5"
+                data-square="45"
+                data-capacity="18"
+                data-number="5"
+              >
+                Hall №5
+              </button>
             </div>
 
             <div class="slider-controls">
@@ -322,88 +354,370 @@
           </div>
 
           <!-- Правый блок со слайдером -->
-          <div class="hall-slider">
+          <div class="hall-slider" data-hall="1">
             <!-- Swiper -->
             <div class="swiper-container">
               <!-- Основной слайдер -->
-              <div class="swiper main-slider">
-                <div class="swiper-wrapper">
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_1.png" alt="" />
+
+              <div class="slider-wrapper">
+                <div class="swiper main-slider">
+                  <div class="swiper-wrapper">
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="" />
+                    </div>
                   </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_2.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_3.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_4.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_5.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_6.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_7.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_8.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_9.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_10.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_11.png" alt="" />
-                  </div>
-                  <div class="halls__slide swiper-slide">
-                    <img src="./img/halls/karaoke_13.png" alt="" />
+                </div>
+                <!-- Слайдер миниатюр -->
+                <div class="swiper thumbs-slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="Миниатюра 1" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="Миниатюра 2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="Миниатюра 3" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="Миниатюра 4" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="Миниатюра 5" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="Миниатюра 6" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="Миниатюра 7" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="Миниатюра 8" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="Миниатюра 9" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./img/halls/karaoke_10.png"
+                        alt="Миниатюра 10"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./img/halls/karaoke_11.png"
+                        alt="Миниатюра 11"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="./img/halls/karaoke_13.png"
+                        alt="Миниатюра 13"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Слайдер миниатюр -->
-              <div class="swiper thumbs-slider">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_1.png" alt="Миниатюра 1" />
+            </div>
+          </div>
+          <div class="hall-slider" data-hall="2" style="display: none">
+            <!-- Swiper -->
+            <div class="swiper-container">
+              <!-- Основной слайдер -->
+
+              <div class="slider-wrapper">
+                <div class="swiper main-slider">
+                  <div class="swiper-wrapper">
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="" />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_2.png" alt="Миниатюра 2" />
+                </div>
+                <!-- Слайдер миниатюр -->
+                <div class="swiper thumbs-slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="Миниатюра 1" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="Миниатюра 2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="Миниатюра 3" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="Миниатюра 4" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="Миниатюра 5" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="Миниатюра 6" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="Миниатюра 7" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="Миниатюра 8" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="Миниатюра 9" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="Миниатюра 10" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="Миниатюра 11" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="Миниатюра 13" />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_3.png" alt="Миниатюра 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hall-slider" data-hall="3" style="display: none">
+            <!-- Swiper -->
+            <div class="swiper-container">
+              <!-- Основной слайдер -->
+
+              <div class="slider-wrapper">
+                <div class="swiper main-slider">
+                  <div class="swiper-wrapper">
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="" />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_4.png" alt="Миниатюра 4" />
+                </div>
+                <!-- Слайдер миниатюр -->
+                <div class="swiper thumbs-slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="Миниатюра 1" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="Миниатюра 2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="Миниатюра 3" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="Миниатюра 4" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="Миниатюра 5" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="Миниатюра 6" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="Миниатюра 7" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="Миниатюра 8" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="Миниатюра 9" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="Миниатюра 10" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="Миниатюра 11" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="Миниатюра 13" />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_5.png" alt="Миниатюра 5" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hall-slider" data-hall="5" style="display: none">
+            <!-- Swiper -->
+            <div class="swiper-container">
+              <!-- Основной слайдер -->
+
+              <div class="slider-wrapper">
+                <div class="swiper main-slider">
+                  <div class="swiper-wrapper">
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="" />
+                    </div>
+                    <div class="halls__slide swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="" />
+                    </div>
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_6.png" alt="Миниатюра 6" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_7.png" alt="Миниатюра 7" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_8.png" alt="Миниатюра 8" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_9.png" alt="Миниатюра 9" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_10.png" alt="Миниатюра 10" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_11.png" alt="Миниатюра 11" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/halls/karaoke_13.png" alt="Миниатюра 13" />
+                </div>
+                <!-- Слайдер миниатюр -->
+                <div class="swiper thumbs-slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_6.png" alt="Миниатюра 1" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_5.png" alt="Миниатюра 2" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_4.png" alt="Миниатюра 3" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_3.png" alt="Миниатюра 4" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_2.png" alt="Миниатюра 5" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_1.png" alt="Миниатюра 6" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_13.png" alt="Миниатюра 7" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_11.png" alt="Миниатюра 8" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_10.png" alt="Миниатюра 9" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_9.png" alt="Миниатюра 10" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_8.png" alt="Миниатюра 11" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/halls/karaoke_7.png" alt="Миниатюра 13" />
+                    </div>
                   </div>
                 </div>
               </div>
